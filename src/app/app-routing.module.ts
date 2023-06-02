@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
-const routes: Routes = [//donw
+const routes: Routes = [
+  //donw
   //   {
   //   path:"",
   //   component:LoginComponent
