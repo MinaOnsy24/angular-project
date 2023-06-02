@@ -4,12 +4,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
-  //donw
-  //   {
-  //   path:"",
-  //   component:LoginComponent
+    {
+    path:"",
+    component:LoginComponent
 
-  // },
+  },
   {
     path:'login',
     component:LoginComponent
