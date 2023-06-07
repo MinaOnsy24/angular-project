@@ -4,17 +4,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
 
-const routes: Routes = [
-{
-  path:"navbar",
-  component:NavbarComponent
-},
-{
-  path:"footer",
-  component:FooterComponent
-}
+// const routes: Routes = [
+// {
+//   path:"navbar",
+//   component:NavbarComponent
+// },
+// {
+//   path:"footer",
+//   component:FooterComponent
+// }
 
-];
+// ];
 
 @NgModule({
   declarations: [
