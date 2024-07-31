@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  SubmitForm(form:any){
+    console.log(typeof(form.value))
+    console.log(form.value)
+  }
 }

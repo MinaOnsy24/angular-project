@@ -1,0 +1,30 @@
+<h2 class="text-center mb-3">Your Card</h2>
+
+<table class="table table-bordered">
+  <thead class="text-center">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Prodact description</th>
+      <th scope="col">Prodact Name</th>
+      <th scope="col">Price </th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let prodacts of prodacts">
+    <tr>
+      <th scope="row">{{prodacts.id}}</th>
+      <td >{{prodacts.description}}</td>
+      <td >{{prodacts.title}}</td>
+      <td>{{prodacts.totalPrice}}</td>
+      <td class="text-center">
+        <a class="btn btn-danger" (click)="down(prodacts)">-</a>
+        <span class="mx-2">{{prodacts.qun}}</span>
+        <a class="btn btn-success" (click)="up(prodacts)">+</a>
+      </td>
+      <td class="text-center btn fw-bold text-danger" (click)="remove(prodacts)">Remove</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 class="text-end">Total : {{totalPrice}} EGP</h4>

@@ -1,0 +1,25 @@
+<div class="card mt-5 col-10 mx-auto">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        [src]="ProdactDetails.images[0]"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ProdactDetails.title}}</h5>
+        <p class="card-text">
+          {{ProdactDetails.description}}
+        </p>
+        <p class="card-text">
+          <small class="text-body-secondary">Category : {{ProdactDetails.category}}</small><br/>
+          <small class="text-body-secondary">Pirce : {{ProdactDetails.price}}</small><br/>
+          <!--[ngStyle]="{'color' : {{ProdactDetails.rating}} > 5 ? 'green' : 'red' } " Not Working -->
+          <small class="text-body-secondary"  >Rating : {{ProdactDetails.rating}}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

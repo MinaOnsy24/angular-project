@@ -1,0 +1,64 @@
+<!-- Reactive form -->
+
+<form class="border border-dark p-2" [formGroup]="AddUser" (ngSubmit)="SubmitForm()">
+
+  <legend>Add User</legend>
+
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name</label>
+    <input type="text" id="fullName" class="form-control" placeholder="Full Name" aria-describedby="fullNameHelper"
+      name="fullName" formControlName="fullName"> <!--اهم خطوة -->
+
+            <!-- errors messaages-->
+    <div id="fullNameHelper" class="form-text text-danger"
+      *ngIf="AddUser.controls['fullName'].touched && AddUser.controls['fullName'].invalid">
+      <!--^^^^ هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر ^^^^^^^^-->
+
+              <!-- هنا مش عايز بال pattern -->
+      <p *ngIf="AddUser.controls['fullName'].errors?.['pattern']">at least 5 letter</p>
+      <p *ngIf="AddUser.controls['fullName'].errors?.['required']">this field required</p>
+    </div>
+            <!-- errors messaages-->
+
+  </div><!-- end 1 input -->
+
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email</label>
+    <input type="email" id="Email" class="form-control" placeholder=" Enter Your Email" aria-describedby="EmailHelper" minlength="5"
+    name="Email" formControlName="Email"><!--اهم خطوة -->
+
+            <!-- errors messaages-->
+            <div id="EmailHelper" class="form-text text-danger"
+            *ngIf="AddUser.controls['Email'].touched && AddUser.controls['Email'].invalid">
+            <!--^^^^ هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر ^^^^^^^^-->
+              <p *ngIf="AddUser.controls['Email'].errors?.['minlength']">at least 5 letter</p>
+              <p *ngIf="AddUser.controls['Email'].errors?.['required']">this field required</p>
+            </div>
+            <!-- errors messaages-->
+
+  </div>
+
+  <div class="mb-3">
+    <label for="phoneNumber" class="form-label">Phone Number</label>
+    <input type="number" id="phoneNumber" class="form-select" placeholder="Phone Number" aria-describedby="phoneNumberHelper"
+      name="phoneNumber" formControlName="phoneNumber"><!--اهم خطوة -->
+
+            <!-- errors messaages-->
+            <div id="phoneNumberHelper" class="form-text text-danger"
+            *ngIf="AddUser.controls['phoneNumber'].touched && AddUser.controls['phoneNumber'].invalid">
+            <!--^^^^ هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر ^^^^^^^^-->
+
+                    <!-- هنا مش عايز بال pattern -->
+            <p *ngIf="AddUser.controls['phoneNumber'].errors?.['pattern']">only 5 number </p>
+            <p *ngIf="AddUser.controls['phoneNumber'].errors?.['required']">this field required</p>
+          </div>
+                  <!-- errors messaages-->
+
+
+                  <!-- onther way -->
+                  <!-- <p *ngIf="AddUser.get('phoneNumber').errors.required">this field required</p> -->
+
+  </div>
+                                                <!-- disabled not working -->
+  <button type="submit" class="btn btn-primary" [disabled]="AddUser.invalid">Submit</button>
+</form>

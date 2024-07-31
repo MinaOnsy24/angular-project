@@ -1,27 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ProductComponent } from './product/product.component';
+import { SingupComponent } from './singup/singup.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CounterComponent } from './counter/counter.component';
+import { ProdactDetailsComponent } from './prodact-details/prodact-details.component';
 
 const routes: Routes = [
-  //   {
-  //   path:"",
-  //   component:LoginComponent
-
+  // {
+  //   // path:"",angularaProjec
+  //   component:ProductComponent
   // },
   {
-    path:'login',
+    path:"",
+    component:ProductComponent
+  },
+  {
+    path:"login",
     component:LoginComponent
   },
   {
-    path:'singup',
-    component:SignupComponent
+    path:"singup",
+    component:SingupComponent
+  },
+  {
+    path:"counter",
+    component:CounterComponent
+  },
+  {
+    path:"prodact-detalis/:id",
+    component:ProdactDetailsComponent
+  },
+  {
+    path:"**",
+    component:NotFoundComponent
   }
-  // {
-  //   path:"**",
-  //   component:
-  // }
-
 ];
 
 @NgModule({

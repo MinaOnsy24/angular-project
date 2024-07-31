@@ -1,0 +1,59 @@
+<!-- Template driven form -->
+
+<form class="border border-dark p-2" #prodactForm="ngForm" (ngSubmit)="SubmitForm(prodactForm)">
+
+  <legend>Add Prodact</legend>
+
+  <div class="mb-3">
+    <label for="prodactName" class="form-label">Prodact Name</label>
+    <input type="text" id="prodactName" class="form-control" placeholder="prodactName"
+      aria-describedby="prodactNameHelper"  required pattern="[a-zA-Z&0-9],{3,}"
+      name="prodactName" #prodactName="ngModel" ngModel><!--اهم خطوة -->
+
+            <!-- errors messaages-->
+    <div id="prodactNameHelper" class="form-text text-danger"
+      *ngIf="prodactName.touched && prodactName.invalid"><!--هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر -->
+              <!-- هنا مش عايز بال pattern -->
+      <!-- <p *ngIf="prodactName.errors?.['pattern']">at least 3 letter</p> -->
+      <p *ngIf="prodactName.errors?.['required']">this field required</p>
+    </div>
+            <!-- errors messaages-->
+
+  </div><!-- end 1 input -->
+
+
+  <div class="mb-3">
+    <label for="Title" class="form-label">Title</label>
+    <input type="text" id="Title" class="form-control" placeholder="Title" aria-describedby="titleHelper"
+    required minlength="5" maxlength="30"
+    name="Title" #Title="ngModel" ngModel><!--اهم خطوة -->
+
+      <!-- errors messaages-->
+    <div id="titleHelper" class="form-text text-danger"
+      *ngIf="Title.touched && Title.invalid"><!--هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر -->
+      <p *ngIf="Title.errors?.['minlength']">at least 5 letter</p><!-- هنا مش عايز بال pattern -->
+      <p *ngIf="Title.errors?.['required']">this field required</p>
+    </div>
+      <!-- errors messaages-->
+
+  </div>
+
+  <div class="mb-3">
+    <label for="Pragraph" class="form-label">Add Pragraph</label>
+    <textarea id="Pragraph" class="form-select" type="text" placeholder="Add Pragraph" required minlength="10" maxlength="150"
+      aria-describedby="pragraphHelper" rows="5"
+      name="Pragraph" #Pragraph="ngModel" ngModel><!--اهم خطوة -->
+    </textarea>
+
+          <!-- errors messaages-->
+          <div id="pragraphHelper" class="form-text text-danger"
+          *ngIf="Pragraph.touched && Pragraph.invalid"><!--هنا انا بتاكد ان يكون touched و invalid و ممكن حجات اكتر -->
+          <p *ngIf="Pragraph.errors?.['minlength']">at least 10 letter</p><!-- هنا مش عايز بال pattern -->
+          <p *ngIf="Pragraph.errors?.['required']">this field required</p>
+        </div>
+          <!-- errors messaages-->
+
+  </div>
+                                                <!-- disabled not working -->
+  <button type="submit" class="btn btn-primary" [disabled]="prodactForm.invalid">Submit</button>
+</form>

@@ -1,0 +1,40 @@
+<!-- <div class="row">
+  <div class="col-12 col-sm-6 col-lg-4 card" *ngFor="let data of allData">
+    <img [src]="data.images[0]" class="card-img-top" alt="{{data.title}}">
+    <div class="card-body">
+      <span >{{data.stock | stock}}</span>
+      <h5 class="card-title fw-bold text-center">{{data.title}}</h5>
+      <p class="card-text">{{data.description}}</p>
+      <p class="card-text fw-bold fs-5">Price : {{data.price}} </p>
+      <span>{{data.createdAt |date}}</span>
+      <hr>
+      <a href="#" class="btn btn-primary">Know More </a>
+    </div>
+  </div>
+</div> -->
+
+<!-- [ngStyle] ="{'color' : {{data.stock}} > 0 ? 'green' : 'red' }" -->
+<!-- [ngStyle]="{'color' : {{product.stock}} > 0 ? 'green' : 'red' }" -->
+
+<!-- ^^^^^ from json file ^^^^^ -->
+<div class="row mx-auto pt-3">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3" *ngFor="let prdact of prodacts" id="{{prdact.id}}">
+        <div class="card moves" >
+            <img [src]="prdact.images[0]" class="card-img-top" alt="{{prdact.title}}" style="height: 15rem;">
+            <div class="card-body">
+                  <!--[ngStyle]="{'color' : {{product.rating}} > 5 ? 'green' : 'red' } " Not Working -->
+                  <span >{{prdact.stock | stock}}</span>
+                  <h5 class="card-title fw-bold text-center">{{prdact.title}}</h5>
+                  <p class="card-text ">Price : {{prdact.price | currency:' LE ' }} </p>
+                  <span>{{prdact.createdAt |date}}</span>
+                  <hr>
+                  <div >
+                      <button class="btn btn-primary w-100"  (click)="redirectToDetails(prdact.id)">Know More</button>
+                      <button class="btn btn-primary w-100" (click)="add(prdact)">Add To Cart</button>
+                  </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+
